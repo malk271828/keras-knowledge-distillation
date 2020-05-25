@@ -8,7 +8,8 @@ from keras import backend as K
 from keras.datasets import cifar10, cifar100
 from keras.utils import plot_model
 from keras.preprocessing.image import ImageDataGenerator
-from keras.engine.topology import Input, Container
+from keras.engine.topology import Input
+from keras.engine.network import Network
 from keras.engine.training import Model
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Activation, Flatten, advanced_activations, BatchNormalization
@@ -111,7 +112,7 @@ datagen = ImageDataGenerator(
 
 datagen.fit(x_train)
 
-callbacks = [ModelCheckpoint(filepath="./baseline/student_model_epoch_{epoch:02d}-val_acc_{val_acc}.hdf5")]
+callbacks = [ModelCheckpoint(filepath="./baseline/student_model_epoch_{epoch:02d}-val_acc_{val_accuracy}.hdf5")]
 model.fit_generator(datagen.flow(x_train, y_train,
                                  batch_size=batch_size),
                     epochs=epochs,

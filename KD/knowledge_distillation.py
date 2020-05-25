@@ -13,7 +13,8 @@ from keras.metrics import categorical_accuracy, top_k_categorical_accuracy
 from keras.datasets import cifar10, cifar100
 from keras.preprocessing.image import ImageDataGenerator
 from keras.preprocessing.image import Iterator
-from keras.engine.topology import Input, Container
+from keras.engine.network import Network
+from keras.layers import Input
 from keras.engine.training import Model
 from keras.models import Sequential
 from keras.utils import plot_model
