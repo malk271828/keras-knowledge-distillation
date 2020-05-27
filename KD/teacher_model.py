@@ -8,7 +8,7 @@ from keras import backend as K
 from keras.datasets import cifar10, cifar100
 from keras.utils import plot_model
 from keras.preprocessing.image import ImageDataGenerator
-from keras.engine.topology import Input, Container
+from keras.engine.topology import Input
 from keras.engine.training import Model
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Activation, Flatten, advanced_activations, BatchNormalization
@@ -125,4 +125,4 @@ model.fit_generator(datagen.flow(x_train, y_train,
                                  batch_size=batch_size),
                     epochs=epochs,
                     validation_data=(x_test, y_test),
-                    workers=4, callbacks=callbacks)
+                    workers=4, callbacks=callbacks, steps_per_epoch=100)
